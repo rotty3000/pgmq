@@ -1,7 +1,5 @@
 # Postgres Message Queue (PGMQ)
 
-test
-
 A lightweight message queue. Like [AWS SQS](https://aws.amazon.com/sqs/) and [RSMQ](https://github.com/smrchy/rsmq) but on Postgres.
 
 [![Tembo Cloud Try Free](https://tembo.io/tryFreeButton.svg)](https://cloud.tembo.io/sign-up)
@@ -224,7 +222,7 @@ SELECT pgmq.send_batch(
 ```
 
 ```text
- send_batch
+ send_batch 
 ------------
           3
           4
@@ -242,7 +240,7 @@ SELECT pgmq.archive(
 ```
 
 ```text
- archive
+ archive 
 ---------
        3
        4
@@ -251,14 +249,14 @@ SELECT pgmq.archive(
 ```
 
 Archive tables can be inspected directly with SQL.
-Archive tables have the prefix `a_` in the `pgmq` schema.
+ Archive tables have the prefix `a_` in the `pgmq` schema.
 
 ```sql
 SELECT * FROM pgmq.a_my_queue;
 ```
 
 ```text
- msg_id | read_ct |          enqueued_at          |          archived_at          |              vt               |     message
+ msg_id | read_ct |          enqueued_at          |          archived_at          |              vt               |     message     
 --------+---------+-------------------------------+-------------------------------+-------------------------------+-----------------
       2 |       0 | 2024-08-06 16:03:41.531556+00 | 2024-08-06 16:03:52.811063+00 | 2024-08-06 16:03:46.532246+00 | {"foo": "bar2"}
       3 |       0 | 2024-08-06 16:03:58.586444+00 | 2024-08-06 16:04:02.85799+00  | 2024-08-06 16:03:58.587272+00 | {"foo": "bar3"}
